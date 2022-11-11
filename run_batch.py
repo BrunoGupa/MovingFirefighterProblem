@@ -51,7 +51,6 @@ for n in n_list:
                                                lambda_d,
                                                instance,
                                                instances=instances,
-                                               geometric=False,
                                                node_list=n_list)
 
                         print("n=", n, "p=", p, "dim=", dim, "burnt_nodes=", burnt_nodes,
