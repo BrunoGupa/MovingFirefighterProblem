@@ -9,10 +9,8 @@ def mfp_constraints(D, T, n, graph, time, firefighters = 1, return_matrices=Fals
     B = T # The max time that takes to the graph to brunt without firefighter actions (+1 of the time 0).
     ############# Create the graph ###############
     ff = graph
-    mfp.plot2d(ff)
     print("burnt nodes in G_solver", ff.burnt_nodes)
 
-    #print(ff.D)
     ################ Create the model ##############
     n = n + 1
 

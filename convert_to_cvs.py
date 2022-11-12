@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 
-def json_to_cvs(json_name, cvs_name):
+def json_to_csv(json_name, cvs_name):
     with open(json_name, 'r') as a_file:
         moving = a_file.read()
         moving = json.loads(moving)

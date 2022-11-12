@@ -2,7 +2,7 @@ import movingfp.gen as mfp
 import json
 from miqcp import mfp_constraints
 from verify_function import verify
-from convert_to_cvs import json_to_cvs
+from convert_to_cvs import json_to_csv
 from gens_for_paper import get_seed
 import numpy as np
 
@@ -75,8 +75,8 @@ def run_and_save(instance, n, p, dim, burnt_nodes, lambda_d, D, T, time, binary_
                                  [is_upper_bound, D_max]])
 
     # Saving data
-    with open(f"/Runs/jsons/{json_name_bin}", "w") as binary:
+    with open(f"./Runs/jsons/{json_name_bin}", "w") as binary:
         json.dump(binary_dic, binary)
-    json_to_cvs(f"/Runs/jsons/{json_name_bin}", f"../Runs/cvs_s/{cvs_name_bin}")
+    json_to_csv(f"./Runs/jsons/{json_name_bin}", f"./Runs/csv_s/{cvs_name_bin}")
 
     return objective, is_upper_bound, not_interrupted

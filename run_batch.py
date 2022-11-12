@@ -2,12 +2,12 @@ from recursive_function import find_B_suf
 from get_D_value import start_recursion
 
 
-instances = 10 # num. of total instances with the same global seed
-n_list = [10, 20, 30, 40]
+instances = 10 # num. of total instances with the same global seed  for each number of nodes
+n_list = [10, 20, 30, 40] # number of nodes of the graphs
 p_list = None  # ex. prob of each edge = 0.5
 pn_list = [2.5]  # ex.: prob of each edge = 2.5/n
-d_list = [2, 7] # the lambda value to be multiplied by the distance matrix
-B_base = 1 # The recursion starts from this value of B until solve the instance
+d_list = [2, 7]  # the lambda value to be multiplied by the distance matrix
+B_base = 1  # The recursion starts from this value of B until solve the instance
 dim_list = [3]  # dimensions
 bn_list = [1, 3]  # num init fires
 
@@ -29,11 +29,11 @@ for n in n_list:
 
     for burnt_nodes in bn_list:
         if threshold_time is None:
-            json_name = f'D2_verify_{n}_{burnt_nodes}_2.json'
-            cvs_name = f"D2_verify_{n}_{burnt_nodes}_2.csv"
+            json_name = f'verify_{n}_{burnt_nodes}.json'
+            cvs_name = f"verify_{n}_{burnt_nodes}.csv"
         else:
-            json_name = f'instances{instances}_{n}_{burnt_nodes}_{threshold_time}.json'
-            cvs_name = f"instances{instances}_{n}_{burnt_nodes}_{threshold_time}.csv"
+            json_name = f'verify_{n}_{burnt_nodes}_{threshold_time}.json'
+            cvs_name = f"verify_{n}_{burnt_nodes}_{threshold_time}.csv"
 
         binary_dic = {}
         for i in range(instances):

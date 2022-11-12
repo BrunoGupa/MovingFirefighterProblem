@@ -12,7 +12,6 @@ def plot_results(file_list, val_dim=3, val_lambdas=[7, 5, 3, 2, 1]):
     """
     Read CSV files and get a pandas dataframe for sufficient T.
     """
-    print('Summary')
     dfs_global = []
     for file in file_list:
         df = pd.read_csv(file)
@@ -44,17 +43,7 @@ def plot_results(file_list, val_dim=3, val_lambdas=[7, 5, 3, 2, 1]):
                 t_sufficient = df_optimal['T'].min()
                 df_sufficient = df_optimal[df_optimal['T'] == t_sufficient]
 
-
                 t_sufficient = df_optimal['T']
-
-                #print("t_sufficient sin min", t_sufficient.item())
-
-
-                #max_objective = df_lambda['objective'].max()
-                #df_objective = df_lambda[df_lambda['objective'] == max_objective]
-                #t_sufficient = df_objective['T'].min()
-                #df_sufficient = df_objective[df_objective['T'] == t_sufficient]
-                
                 
                 dfs_partial.append(df_sufficient)
         df_partial = pd.concat(dfs_partial, ignore_index=True)
@@ -68,7 +57,7 @@ def plot_results(file_list, val_dim=3, val_lambdas=[7, 5, 3, 2, 1]):
                             'T': 'Sufficient B',
                             'D': 'Defending Rounds D'}, inplace = True)
 
-    print(f'size of final dataframe: {df_global.size}')
+    #print(f'size of final dataframe: {df_global.size}')
 
 
     # Plotting num_nodes vs burnt_nodes
@@ -86,7 +75,7 @@ def plot_results(file_list, val_dim=3, val_lambdas=[7, 5, 3, 2, 1]):
                 ci=95);
     ax.set(xlim=(9.64, None))
     plt.xticks([10, 20, 30, 40])
-    plt.savefig('img/To_Rolas/num_nodes_vs_objective.png', dpi=300)
+    plt.savefig('img/num_nodes_vs_objective.png', dpi=300)
 
     # Plotting num_nodes vs running time for a sufficient T.
     ax = sns.relplot(data=df_global,
@@ -104,80 +93,6 @@ def plot_results(file_list, val_dim=3, val_lambdas=[7, 5, 3, 2, 1]):
     ax.set(xlim=(9.64, None))
     # specify positions of ticks on x-axis and y-axis
     plt.xticks([10, 20, 30, 40])
-    plt.savefig('img/To_Rolas/num_nodes_vs_runtime.png', dpi=300)
-
-
-    # Plotting num_nodes vs sufficient T.
-    # sns.relplot(data=df_global,
-    #             x='Number of nodes',
-    #             y='Sufficient B',
-    #             col='Initial fires',
-    #             hue='$\lambda$',
-    #             # style='lambda_d',
-    #             palette='bright', #deep, muted, bright, pastel, dark, colorblind
-    #             kind='line',
-    #             style="$\lambda$",
-    #             markers=True,
-    #             ci="sd");
-    #
-    # # specify positions of ticks on x-axis and y-axis
-    # plt.xticks([10, 20, 30, 40])
-    # #plt.legend(loc='upper right')
-    # plt.savefig('img/num_nodes_vs_B.png', dpi=300)
-    #
-    #
-    # # Plotting num_nodes vs D.
-    # sns.relplot(data=df_global,
-    #             x='Number of nodes',
-    #             y='Defending Rounds D',
-    #             col='Initial fires',
-    #             hue='$\lambda$',
-    #             palette='bright',
-    #             kind='line',
-    #             style="$\lambda$",
-    #             markers=True,
-    #             ci="sd");
-    # # specify positions of ticks on x-axis and y-axis
-    # plt.xticks([10, 20, 30, 40])
-    # plt.savefig('img/num_nodes_vs_D.png', dpi=300)
-
-
-
-    # # Plotting num_nodes vs burnt_nodes
-    # sns.relplot(data=df_global,
-    #             x='Number of nodes',
-    #             y='Objective',
-    #             col='Initial fires',
-    #             hue='$\lambda$',
-    #             # style='lambda_d',
-    #             palette='bright',
-    #             kind='line',
-    #             style="$\lambda$",
-    #             markers=True,
-    #             ci="sd");
-    # plt.xticks([10, 20, 30, 40])
-    # plt.savefig('img/num_nodes_vs_objective_sd.png', dpi=300)
-
-
-
-
-
-    ### ploting the previous one but using standar deviation in place of
-    # Plotting num_nodes vs running time for a sufficient T.
-
-    # sns.relplot(data=df_global,
-    #             x='Number of nodes',
-    #             y='Running time (sec)',
-    #             col='Initial fires',
-    #             hue='$\lambda$',
-    #             # style='lambda_d',
-    #             palette='bright',
-    #             kind='line',
-    #             style="$\lambda$",
-    #             markers=True,
-    #             ci="sd").set(yscale="log");
-    # # specify positions of ticks on x-axis and y-axis
-    # plt.xticks([10, 20, 30, 40])
-    # plt.savefig('img/num_nodes_vs_runtime_sd.png', dpi=300)
+    plt.savefig('img/num_nodes_vs_runtime.png', dpi=300)
 
 
