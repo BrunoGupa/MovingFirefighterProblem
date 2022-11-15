@@ -71,7 +71,7 @@ of the Moving Firefighter Problem (MFP)
 
 
 
-## Running the implemented formulations
+## Running the implemented formulation
 
 Run "run_batch.py." Feel free to change the hyperparameters. Be careful because a more considerable number 
 of nodes in a graph or a smaller lambda value could mean a more considerable running time.
