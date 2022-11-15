@@ -1,12 +1,10 @@
 import numpy as np
-#import scipy.sparse as sp
-import gurobipy as gp
 from gurobipy import GRB
 from gurobipy import *
 import movingfp.gen as mfp
 
 def mfp_constraints(D, T, n, graph, time, firefighters = 1, return_matrices=False):
-    B = T # The max time that takes to the graph to brunt without firefighter actions (+1 of the time 0).
+    B = T  # The max time that takes to the graph to brunt without firefighter actions (+1 of the time 0).
     ############# Create the graph ###############
     ff = graph
     print("burnt nodes in G_solver", ff.burnt_nodes)
@@ -242,12 +240,9 @@ def mfp_constraints(D, T, n, graph, time, firefighters = 1, return_matrices=Fals
     m.setObjective(sum(b_transpose[B - 1]), GRB.MINIMIZE)  # -----------------------------------------------(1)
     # ---------------------------- OPTIMIZATION -------------------------------------------------------
 
-    # m.computeIIS()
-    # m.write("model.lp")
 
     m.optimize()
     runtime = m.Runtime
-    #print("The run time is %f" % runtime)
     not_interrupted = True
     if time is not None:
         if runtime > time:
