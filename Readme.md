@@ -1,7 +1,7 @@
 # The Moving Firefighter Problem
 The Moving Firefighter Problem (MFP) is a generalization of the original Firefighter Problem presented by Hartnell. 
 It incorporates a function τ that defines the time a firefighter takes to move from one vertex to another. The article 
-that presents this problem will soon be available online.
+that presents this problem is available here: https://www.mdpi.com/2038212
 
 This repository contains the mixed-integer quadratically constrained program (MIQCP) for the 
 optimization version of the MFP for a single firefighter (1-MFP). 
